@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="blog">
+	<!-- 
+	<insert id="insert" parameterType="uservo">
+		<![CDATA[
+			insert into user values(null,#{name},#{email},#{password},#{gender},'USER',now())
+		]]>
+		<selectKey keyProperty="no" resultType="long" order="AFTER">
+			<![CDATA[
+			select last_insert_id()
+			]]>
+		</selectKey>
+	</insert>
+
+ -->
+ 	<insert id="insertBlog" parameterType="usersVo">
+ 		<![CDATA[
+ 			insert into blog values(#{id},'default','spring-logo.jpg')
+ 		]]>
+ 	</insert>
+ 	
+ 	<select id="getPost" resultType="postVo" parameterType="map">
+ 		<![CDATA[
+ 			select p.no,p.title,p.content,p.reg_date as regDate,p.category_no as categoryNo from post p,category c where p.category_no = c.no and blog_id=#{id} and c.no = (select d.no from category d where blog_id=#{id} order by no limit #{categoryOrder},1) order by p.no limit #{postOrder},1
+ 		]]>
+ 	</select>
+ 	
+ 	<select id="getPostList" parameterType="map" resultType="postVo">
+ 		<![CDATA[
+ 			select no,title,content,date_format(reg_date,'%Y-%m-%d %T') as regDate,category_no as categoryNo from post where category_no = (select c.no from category c where blog_id=#{id} order by no limit #{categoryOrder},1)
+ 		]]>
+ 	</select>
+ 	
+ 	<select id="getBlog" parameterType="string" resultType="blogvo">
+ 		<![CDATA[
+ 			select id,title,logo from blog where id = #{id}
+ 		]]>
+ 	</select>
+ 	
+ 	<update id="updateBlogInfo" parameterType="blogvo">
+ 		<![CDATA[
+ 			update blog set title = #{title}, logo=#{logo} where id=#{id}
+ 		]]>
+ 	
+ 	</update>
+
+ 	<update id="updateBlogInfoExceptImage" parameterType="blogvo">
+ 		<![CDATA[
+ 			update blog set title = #{title} where id=#{id}
+ 		]]>
+ 	
+ 	</update>
+ 
+ 
+</mapper>
