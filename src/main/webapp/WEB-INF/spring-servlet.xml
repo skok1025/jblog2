@@ -88,10 +88,10 @@
 			<mvc:exclude-mapping path="/user/login"/>
 			<mvc:exclude-mapping path="/user/logout"/>
 			<mvc:exclude-mapping path="/user/join"/>
-			<mvc:exclude-mapping path="/user/api/checkid"/>
+			<mvc:exclude-mapping path="/user/api/**"/>
 			<!-- <mvc:exclude-mapping path="/user/api/existids"/> -->		
 			<mvc:exclude-mapping path="/sh"/>
-			<bean class="com.cafe24.security.AuthAdminInterceptor" />
+			<bean class="com.cafe24.security.AuthAccessInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>
 			<mvc:mapping path="/user/logout" />

@@ -21,10 +21,14 @@
  		]]>
  	</insert>
  	
- 	<select id="getById" parameterType="string" resultType="usersvo">
+ 	<select id="getById" parameterType="string" resultType="usersvo" >
  		<![CDATA[
  			select id,name,password,reg_date as regDate from users where id=#{id}
- 		]]>
+ 		]]> 
+		<!-- { call GETUserlistId(
+ 			#{id, mode=IN, jdbcType=VARCHAR}
+ 		 )
+ 		}  -->
  	</select>
  	
  	<select id="getByIdAndPw" parameterType="usersvo" resultType="usersvo">

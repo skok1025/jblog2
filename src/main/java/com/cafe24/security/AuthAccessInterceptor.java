@@ -14,7 +14,7 @@ import com.cafe24.jblog.repository.UserDao;
 import com.cafe24.jblog.vo.BlogVo;
 import com.cafe24.jblog.vo.UsersVo;
 
-public class AuthAdminInterceptor extends HandlerInterceptorAdapter {
+public class AuthAccessInterceptor extends HandlerInterceptorAdapter {
 	@Autowired
 	private BlogDao blogdao;
 	@Autowired
