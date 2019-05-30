@@ -1,5 +1,7 @@
 package com.cafe24.jblog.repository;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -23,6 +25,21 @@ public class UserDao {
 
 	public UsersVo getByIdAndPw(UsersVo usersVo) {
 		return sqlSession.selectOne("user.getByIdAndPw",usersVo);
+	}
+
+
+	public Boolean isIdExist(String requestId) {
+		return (Integer)sqlSession.selectOne("user.isIdExist", requestId) == 1;
+	}
+
+
+	public List<UsersVo> getUserListBykey(String key) {
+		return sqlSession.selectList("user.getUserListbykey", key);
+	}
+
+
+	public List<UsersVo> getUserListBykey() {
+		return sqlSession.selectList("user.getUserList");
 	}
 
 

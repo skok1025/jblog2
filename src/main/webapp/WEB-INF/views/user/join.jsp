@@ -20,6 +20,7 @@
 	</c:if>
 
 	$(function() {
+		
 		$("#blog-id").keydown(function() {
 			$("#btn-checkemail").show();
 			$("#img-checkemail").hide();
@@ -46,12 +47,14 @@
 												return;
 											}
 											if (response.data == true) {
+												console.log(response);
 												alert("이미 존재하는 아이디 입니다.\n다른 아이디를 사용하세요.");
 												$("#blog-id").focus().val("");
 												return;
 											}
 											$("#btn-checkemail").hide();
 											$("#img-checkemail").show();
+											$("#submitbt").removeAttr("disabled");
 										}
 									});
 						});
@@ -73,7 +76,7 @@
 			</p>
 
 			<label class="block-label" for="blog-id">아이디</label>
-			<form:input path="id"/>
+			<form:input id="blog-id" path="id"/>
 			<input id="btn-checkemail" type="button" value="id 중복체크">
 			<img id="img-checkemail" style="display: none;"
 				src="${pageContext.request.contextPath}/assets/images/check.png">
@@ -94,9 +97,10 @@
 				<label class="l-float">서비스 약관에 동의합니다.</label>
 			</fieldset>
 
-			<input type="submit" value="가입하기">
+			<input id="submitbt" type="submit" value="가입하기" disabled="disabled" >
 
 		</form:form>
 	</div>
+	<a href="${pageContext.servletContext.contextPath}">메인으로 돌아가기</a>
 </body>
 </html>

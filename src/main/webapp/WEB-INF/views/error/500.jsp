@@ -3,19 +3,46 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JBlog</title>
+<link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/jblog.css">
+<style type="text/css">
+
+	#ops{
+		font-size:5em;
+		font-weight:bold;
+		margin: 50px 0px 50px 0px;
+		color: tomato;
+		font-family: 'ZCOOL KuaiLe', cursive;
+	}
+	
+	#contents{
+		font-size: 2em;
+		font-family: 'Do Hyeon', sans-serif;
+		margin: 50px 0px 50px 0px;
+	}
+
+</style>
+
 </head>
 <body>
-	<h1>Oooops!</h1>
-	<p>
-		죄송합니다. <br />
+	<div class="center-content">
+		<h1 class="logo">JBlog</h1>
+		
+		<p id="ops">Oooops!</p>
+		<p id="contents">
+			죄송합니다. <br />
 		서비스 장애가 발생했습니다. <br />
 		잠시후, 다시 사용해주세요.
-	</p>
+		</p>
+		<a href="${pageContext.servletContext.contextPath}">메인으로 돌아가기</a>
+	</div>
 </body>
 </html>
+

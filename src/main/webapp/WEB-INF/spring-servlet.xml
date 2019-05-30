@@ -10,6 +10,9 @@
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- auto proxy -->
+	<aop:aspectj-autoproxy />
+	
    <mvc:resources mapping="/logos/**" location="file:/jblog-uploads/" order="0"/> 
 
 	<!-- 1. validator, conversionService, messageConverter -->
@@ -80,7 +83,14 @@
 			<bean class="com.cafe24.security.AuthLoginInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>
-			<mvc:mapping path="/**/admin/**"/>
+			<!-- <mvc:mapping path="/**/admin/**"/> -->
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/user/login"/>
+			<mvc:exclude-mapping path="/user/logout"/>
+			<mvc:exclude-mapping path="/user/join"/>
+			<mvc:exclude-mapping path="/user/api/checkid"/>
+			<!-- <mvc:exclude-mapping path="/user/api/existids"/> -->		
+			<mvc:exclude-mapping path="/sh"/>
 			<bean class="com.cafe24.security.AuthAdminInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>

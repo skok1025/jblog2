@@ -32,4 +32,24 @@
  			select id,name,password,reg_date as regDate from users where id=#{id} and password=#{password}
  		]]>
  	</select>
+ 	
+ 	<select id="isIdExist" parameterType="string" resultType="integer">
+ 		<![CDATA[
+ 			select count(*) from users where id= #{requestId}
+ 		]]>
+ 	</select>
+ 	
+ 	<select id="getUserListbykey" parameterType="string" resultType="usersvo">
+ 		<![CDATA[
+ 			select id from users where id like concat(#{key},'%')
+ 		]]>
+ 	</select>
+ 	
+ 	<select id="getUserList" parameterType="string" resultType="usersvo">
+ 		<![CDATA[
+ 			select id from users
+ 		]]>
+ 	</select>
+ 	
+ 	
 </mapper>

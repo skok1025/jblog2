@@ -13,9 +13,13 @@
 		<c:if test="${not empty authuser }">
 			<li><a
 				href="${pageContext.servletContext.contextPath}/user/logout">로그아웃</a></li>
+			
+			<c:if test="${authuser.id eq id }">
 			<li><a
 				href="${pageContext.servletContext.contextPath }/${id}/admin/basic">블로그
 					관리</a></li>
+			</c:if>
 		</c:if>
+		<li><a href="${pageContext.servletContext.contextPath}">메인으로 돌아가기</a></li>
 	</ul>
 </div>

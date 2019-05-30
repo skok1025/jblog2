@@ -1,5 +1,7 @@
 package com.cafe24.jblog.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,6 +36,14 @@ public class UserService {
 	
 	public UsersVo getUser(UsersVo usersVo) {
 		return userdao.getByIdAndPw(usersVo);
+	}
+
+	public List<UsersVo> showUserList(String key) {
+		return userdao.getUserListBykey(key);
+	}
+
+	public List<UsersVo> showUserList() {
+		return userdao.getUserListBykey();
 	}
 
 }

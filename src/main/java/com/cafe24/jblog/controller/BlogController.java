@@ -39,8 +39,6 @@ public class BlogController {
 		Long categoryOrder = 0L;
 		Long postOrder = 0L;
 		
-		//Long categorySize = blogService.getCategorySizeById(id);
-		
 		if(no1.isPresent()) {
 			categoryOrder = no1.get();
 		}
@@ -48,12 +46,10 @@ public class BlogController {
 		if(no2.isPresent()) {
 			postOrder =  no2.get();
 		}
-		System.out.println(categoryOrder+":"+postOrder);
-
-		BlogVo blogvo = blogService.getBlogInfo(id);
-				
+		
+		BlogVo blogvo = blogService.getBlogInfo(id);		
 		PostVo postVo = blogService.showPost(id,categoryOrder,postOrder);
-		System.out.println("postvo: "+postVo);
+		
 		List<PostVo> postList = blogService.showPostList(id,categoryOrder);
 		List<CategoryVo> categoryList = blogService.showCategoryList(id);
 		
@@ -172,6 +168,7 @@ public class BlogController {
 		}
 		return "redirect:/"+id;
 	}
+	
 	
 	
 }

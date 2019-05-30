@@ -26,7 +26,9 @@
 			<label>아이디</label> <input type="text" name="id"> <label>패스워드</label>
 			<input type="password" name="password"> <input type="submit"
 				value="로그인">
+				
 		</form>
 	</div>
+	<a href="${pageContext.servletContext.contextPath}">메인으로 돌아가기</a>
 </body>
 </html>

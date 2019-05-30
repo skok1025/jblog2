@@ -58,7 +58,7 @@ public class BlogService {
 
 	public int updateBlogBasicInfo(String blogId,BlogVo blogvo) {
 		System.out.println(blogvo.getAttach());
-		blogvo.setTitle(blogvo.getTitle().replaceAll("<script", "&ltscript").replaceAll("</script>", "&ltscript&gt"));
+		blogvo.setTitle(blogvo.getTitle().replaceAll("(?i)<script", "&lt;script"));
 		try {
 			if(!blogvo.getAttach().isEmpty()) {
 				String logo = blogvo.getAttach().getOriginalFilename();
@@ -92,10 +92,16 @@ public class BlogService {
 	}
 
 	public int createCategory(CategoryVo categoryvo) {
+		categoryvo.setName(categoryvo.getName().replaceAll("(?i)<script", "&lt;script"));
+		categoryvo.setDescription(categoryvo.getDescription().replaceAll("(?i)<script", "&lt;script"));
+		
 		return categorydao.insertCategory(categoryvo);
 	}
 
 	public int createPost(PostVo postvo) {
+		postvo.setContent(postvo.getContent().replaceAll("(?i)<script", "&lt;script"));
+		postvo.setTitle(postvo.getTitle().replaceAll("(?i)<script", "&lt;script"));
+	
 		return postdao.insertPost(postvo);
 	}
 
