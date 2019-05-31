@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JBlog</title>
 <Link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
-<script src="${pageContext.servletContext.contextPath}/assets/js/jquery/jquery-1.9.0.js"/>
+<script src="${pageContext.servletContext.contextPath}/assets/js/jquery/jquery-1.9.0.js"></script>
 <script type="text/javascript">
 	<c:if test='${updatesuccess eq "false"}'>
 		alert("업데이트 실패 ...");

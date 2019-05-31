@@ -20,6 +20,7 @@ import com.cafe24.jblog.vo.BlogVo;
 import com.cafe24.jblog.vo.CategoryVo;
 import com.cafe24.jblog.vo.PostVo;
 
+
 @Controller
 @RequestMapping("/{id:(?!assets).*}")
 public class BlogController {
@@ -63,6 +64,7 @@ public class BlogController {
 		return "blog/blog-main";
 	}
 	
+	//@Auth(role=Auth.Role.ADMIN)
 	@GetMapping("/admin/basic")
 	public String adminBasic(
 		@PathVariable(value = "id") String id,
@@ -73,6 +75,7 @@ public class BlogController {
 		return "blog/blog-admin-basic";
 	}
 	
+	//@Auth(role=Auth.Role.ADMIN)
 	@PostMapping("/admin/basic")
 	public String adminBasic(
 		@PathVariable(value = "id") String id,
@@ -87,6 +90,7 @@ public class BlogController {
 		return "redirect:/"+id;
 	}
 	
+	//@Auth(role=Auth.Role.ADMIN)
 	@GetMapping("/admin/category")
 	public String adminCategory(
 			@PathVariable(value = "id") String id,
@@ -98,6 +102,7 @@ public class BlogController {
 		return "blog/blog-admin-category";
 	}
 	
+	//@Auth(role=Auth.Role.ADMIN)
 	@GetMapping("/admin/category/del/{no}")
 	public String deladminCategory(
 			@PathVariable(value = "id")String id,
@@ -112,6 +117,7 @@ public class BlogController {
 		return "redirect:/"+id+"/admin/category";
 	}
 	
+	//@Auth(role=Auth.Role.ADMIN)
 	@PostMapping("/admin/category/add")
 	public String addadminCategory(
 		@PathVariable(value = "id")String id,
@@ -136,6 +142,7 @@ public class BlogController {
 		return "redirect:/"+id+"/admin/category";
 	}
 	
+	//@Auth(role=Auth.Role.ADMIN)
 	@GetMapping("/admin/write")
 	public String writePost(
 			@ModelAttribute PostVo postvo,
@@ -147,6 +154,7 @@ public class BlogController {
 		return "blog/blog-admin-write";
 	}
 	
+	//@Auth(role=Auth.Role.ADMIN)
 	@PostMapping("/admin/write")
 	public String writePost(
 			@PathVariable(value = "id")String id,

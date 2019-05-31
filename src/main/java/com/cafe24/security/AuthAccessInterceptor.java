@@ -39,12 +39,7 @@ public class AuthAccessInterceptor extends HandlerInterceptorAdapter {
 			System.out.println(handler);
 			return true;
 		}
-		
-//		if("user".equals(request.getRequestURI().split("/")[2]) && request.getRequestURI().split("/").length==3) {
-//			response.sendRedirect(request.getContextPath());
-//			return false;
-//		}
-		
+			
 		String requestId = request.getRequestURI().split("/")[2];
 		System.out.println(requestId);
 		
