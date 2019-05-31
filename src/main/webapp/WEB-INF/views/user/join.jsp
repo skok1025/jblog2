@@ -24,6 +24,8 @@
 		$("#blog-id").keydown(function() {
 			$("#btn-checkemail").show();
 			$("#img-checkemail").hide();
+			$("#submitbt").attr("disabled","true");
+			//document.getElementById("submitbt").disabled = true;
 		});
 
 		$("#btn-checkemail")
